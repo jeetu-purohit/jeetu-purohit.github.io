@@ -90,13 +90,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   projectsButton.forEach((button) => {
     button.addEventListener("click", () => {
-      showPage(3);
+      const index = parseInt(button.dataset.targetIndex, 10);
+      showPage(index);
     });
   });
 
   contactButton.forEach((button) => {
     button.addEventListener("click", () => {
-      showPage(4);
+      const index = parseInt(button.dataset.targetIndex, 10);
+      showPage(index);
     });
   });
 
