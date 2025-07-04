@@ -93,5 +93,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  showPage(2);
+  showPage(0);
 });
