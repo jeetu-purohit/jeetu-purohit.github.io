@@ -1,0 +1,393 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    /* background: linear-gradient(to right, #c9d6ff, #e2e2e2); */
+    background: linear-gradient(to right, #ffe9ccca, #fff4e62b);
+  
+    color: #000000;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  body::selection {
+    background-color: #ffb555;
+    color: #1e1e1e;
+    text-shadow: -1px -1px 0 #ffedcc, 1px 1px 0 #ffc107;
+  }
+  
+  .website-container {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    height: 80vh;
+    width: 90vw;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0px 20px 20px #ead6ba52;
+    border-radius: 10px;
+  }
+  
+  .navbar {
+    display: flex;
+    width: 200px;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: #fff4e683; */
+    background-color: #fff4e683;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar li {
+    margin-bottom: 25px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    border-radius: 5px;
+    transition: color 0.3s ease;
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+    color: #00000096;
+  }
+  
+  .navbar a:hover,
+  .navbar a.active {
+    /* background-color: #DADEFF; */
+    /* background-color: #f9c683; */
+    color: #000000;
+    transform: scale(1.1);
+  }
+  
+  .navbar a::after {
+    content: "";
+    background-color: #ffb555;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in;
+  }
+  
+  .navbar a.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Takes up remaining space */
+    position: relative; /* Important for positioning pages */
+    overflow: hidden; /* Hide overflowing pages */
+    perspective: 1000px; /* Creates the 3D perspective for the flip */
+  }
+  
+  .page {
+    position: absolute;
+    padding-top: 3vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    box-sizing: border-box;
+    opacity: 0;
+  }
+  
+  .page.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  #home {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    height: 10%;
+    padding: 5px 0 10px 10px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    opacity: 90%;
+    text-shadow: 3px 2px #ffb55593;
+  }
+  
+  #home .home-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    gap: 20px;
+    padding: 40px;
+  }
+  
+  .home-content .text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60%;
+    height: 100%;
+  }
+  
+  .home-content .text-section .greeting {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .home-content .text-section h1 {
+    font-size: 4.1rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+  }
+  
+  .home-content .text-section h1 span {
+    color: #1a1a1ade;
+    font-weight: 800;
+  }
+  
+  .home-content .text-section .tagline {
+    line-height: 1.4;
+    font-weight: 400;
+    color: #777;
+    font-size: 1.4em;
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+  
+  .home-content .text-section .links {
+    padding: 0.5rem;
+    max-width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .home-content .text-section .links button {
+    border: none;
+    padding: 1.1rem;
+    font-size: 1.05rem;
+    border-radius: 5px;
+    font-weight: 500;
+    background-color: #ffb555ea;
+    transition: transform 0.2s ease-in-out, background-color 0.1s ease-in-out;
+  }
+  
+  .home-content .text-section .links button:hover {
+    cursor: pointer;
+    background-color: #ffb555;
+    color: #000000;
+    transform: translateY(-1.2px);
+    box-shadow: 5px 10px 10px #ffe2bc;
+  }
+  
+  .home-content .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 40%;
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  .home-content .image-section .image-circle {
+    height: 250px;
+    width: 250px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  
+  #about {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  
+  #about .aboutme {
+    margin-top: 20px;
+    /* background-color: grey; */
+    height: 70%;
+    width: 60%;
+    text-align: center;
+  }
+  
+  #about .aboutme .line {
+    content: "";
+    background-color: #ffb555;
+    width: 100%;
+    position: relative;
+    height: 1px;
+    margin: 20px 0;
+  }
+  
+  #about .aboutme p {
+    margin: 10px 0;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #777;
+    font-size: 1.4em;
+    text-align: center;
+  }
+  
+  .home-content .image-section .image-circle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .home-content .image-section .abstract-circle {
+    position: absolute;
+    background-color: #ffe2bc;
+    height: 300px;
+    width: 300px;
+    top: 5%;
+    left: 8%;
+    border-radius: 50%;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin: 30px auto;
+    padding: 0 20px;
+    max-width: 1000px;
+  }
+  
+  .skills-card {
+    background-color: #fbfbfb;
+    padding: 1rem;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+  
+  .skills-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .skills-card h3 {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .skills-card h3:after {
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    border-radius: 20px;
+    position: absolute;
+    width: 100px;
+    background-color: #ffb555;
+  }
+  
+  .skills-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .skills-card ul li {
+    color: #555;
+    line-height: 1.3;
+    margin-top: 5px;
+    font-size: 1.02rem;
+    font-weight: 500;
+  }
+  
+  .skills-card ul li i {
+    color: #ffb555;
+    font-size: large;
+    margin: 4px 4px 5px 4px;
+    /* font-weight: 800; */
+  }
+  
+  .skills-card ul li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .project_wrapper {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    font-weight: 200;
+    color: #ffb555;
+    text-shadow: 10px 20px 10px #ffb555;
+  }
+  
+  .coming {
+    font-size: 6.5rem;
+  }
+  
+  #contact .contact {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  
+  #contact .contact h4 {
+    line-height: 40px;
+    left: 0;
+  }
+  
+  #contact .contact h4 em {
+    color: #0000009c;
+    font-weight: 600;
+  }
+  
+  .logo {
+    color: #000000;
+    font-size: large;
+  }
+  
