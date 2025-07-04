@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let main_container = document.querySelector(".main-content");
   let section = document.querySelectorAll("section");
   let links = document.querySelectorAll(".navbar a");
+  let contactButton = document.querySelectorAll(".contact-button");
+  let projectsButton = document.querySelectorAll(".projects-button");
 
   let currentIndex = 0;
   let isAnimating = false;
@@ -84,6 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     event.preventDefault();
+  });
+
+  projectsButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      showPage(3);
+    });
+  });
+
+  contactButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      showPage(4);
+    });
   });
 
   links.forEach((link, index) => {
