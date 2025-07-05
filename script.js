@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTime = currentTime;
 
     scrollAccumulator += event.deltaY;
-    console.log(scrollAccumulator);
 
     let nextPageIndex = currentIndex;
     let pageChangeTriggered = false;
