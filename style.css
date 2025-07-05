@@ -388,3 +388,129 @@ h2 {
   color: #000000;
   font-size: large;
 }
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+    height: auto;
+    width: 100vw;
+  }
+
+  .website-container {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px 0;
+  }
+
+  .navbar {
+    flex-direction: row;
+    width: 100%;
+    /* height: 10%; */
+    overflow-x: auto;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1vh;
+  }
+
+  .navbar ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .navbar li {
+    margin-bottom: 0;
+  }
+
+  .navbar a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    overflow: visible;
+    height: auto;
+    position: static;
+  }
+
+  .page {
+    position: relative;
+    opacity: 1;
+    height: auto;
+    padding: 4rem 2rem;
+  }
+
+  #home .home-content {
+    flex-direction: column-reverse;
+    padding: 1.5rem;
+    height: auto;
+    gap: 2rem;
+  }
+
+  .home-content .text-section {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .home-content .text-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-content .text-section .tagline {
+    font-size: 1.1rem;
+  }
+
+  .home-content .text-section .links {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .home-content .image-section {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-content .image-section .image-circle,
+  .home-content .image-section .abstract-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  #about .aboutme {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .coming {
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  #contact .contact {
+    padding: 0 10px;
+    font-size: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  #contact .contact h4 {
+    line-height: 2rem;
+  }
+}
+
