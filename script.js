@@ -87,6 +87,25 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
   });
 
+  const isMobile = window.innerWidth <= 768;
+
+  links.forEach((link, index) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (isMobile) {
+        // Scroll to section by ID on mobile
+        const targetId = link.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        showPage(index); // desktop logic
+      }
+    });
+  });
+
+
   projectsButton.forEach((button) => {
     button.addEventListener("click", () => {
       showPage(3);
