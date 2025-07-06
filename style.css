@@ -412,10 +412,10 @@ h2 {
   .navbar {
     flex-direction: row;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     align-items: center;
     justify-content: space-around;
-    padding: 3vh;
+    padding: 3vh 1vh;
   }
 
   .navbar ul {
