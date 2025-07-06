@@ -396,6 +396,7 @@ h2 {
     overflow-y: auto;
     height: auto;
     width: 100vw;
+    scroll-behavior: smooth;
   }
 
   .website-container {
@@ -445,6 +446,11 @@ h2 {
     opacity: 1;
     height: auto;
     padding: 4rem 2rem;
+    box-shadow: 0 1px 1px 1px #ffb555;
+  }
+
+  .page:last-child {
+    box-shadow: none;
   }
 
   #home .home-content {
@@ -513,4 +519,3 @@ h2 {
     line-height: 2rem;
   }
 }
-

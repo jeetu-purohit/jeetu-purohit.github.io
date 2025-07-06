@@ -51,43 +51,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 50);
   }
 
-  main_container.addEventListener("wheel", (event) => {
-    if (isAnimating) {
-      event.preventDefault();
-      return;
-    }
-
-    const currentTime = Date.now();
-    if (currentTime - lastScrollTime < scrollCooldown) {
-      return;
-    }
-    lastScrollTime = currentTime;
-
-    scrollAccumulator += event.deltaY;
-
-    let nextPageIndex = currentIndex;
-    let pageChangeTriggered = false;
-
-    if (scrollAccumulator > scrollThreshold) {
-      nextPageIndex++;
-      scrollAccumulator = 0;
-      pageChangeTriggered = true;
-    } else if (scrollAccumulator < -scrollThreshold) {
-      nextPageIndex--;
-      pageChangeTriggered = true;
-      scrollAccumulator = 0;
-    }
-
-    if (pageChangeTriggered) {
-      if (nextPageIndex >= 0 && nextPageIndex < section.length) {
-        showPage(nextPageIndex);
-      }
-    }
-
-    event.preventDefault();
-  });
-
   const isMobile = window.innerWidth <= 768;
+
+  if (!isMobile) {
+    main_container.addEventListener("wheel", (event) => {
+      if (isAnimating) {
+        event.preventDefault();
+        return;
+      }
+
+      const currentTime = Date.now();
+      if (currentTime - lastScrollTime < scrollCooldown) {
+        return;
+      }
+      lastScrollTime = currentTime;
+
+      scrollAccumulator += event.deltaY;
+
+      let nextPageIndex = currentIndex;
+      let pageChangeTriggered = false;
+
+      if (scrollAccumulator > scrollThreshold) {
+        nextPageIndex++;
+        scrollAccumulator = 0;
+        pageChangeTriggered = true;
+      } else if (scrollAccumulator < -scrollThreshold) {
+        nextPageIndex--;
+        pageChangeTriggered = true;
+        scrollAccumulator = 0;
+      }
+
+      if (pageChangeTriggered) {
+        if (nextPageIndex >= 0 && nextPageIndex < section.length) {
+          showPage(nextPageIndex);
+        }
+      }
+
+      event.preventDefault();
+    });
+  }
 
   links.forEach((link, index) => {
     link.addEventListener("click", (event) => {
@@ -104,24 +106,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-
   projectsButton.forEach((button) => {
     button.addEventListener("click", () => {
-      showPage(3);
+      if (isMobile) {
+        const target = document.getElementById("projects");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        showPage(3);
+      }
     });
   });
 
   contactButton.forEach((button) => {
     button.addEventListener("click", () => {
-      showPage(4);
-    });
-  });
-
-  links.forEach((link, index) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      showPage(index);
+      if (isMobile) {
+        const target = document.getElementById("contact");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        showPage(4);
+      }
     });
   });
 
